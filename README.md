@@ -10,7 +10,7 @@ TypeScript, Python, and Go -- and so we will find that the Pulumi version is usu
 > With 0.12, expressions are a native part of the language and can be used directly. Example: `ami = var.ami[1]`. Read
 > more at https://www.hashicorp.com/blog/terraform-0-12-preview-first-class-expressions.
 
-In Pulumi, you use real programming languages, which means you've always had first-class expressions.
+In Pulumi, you use general purpose programming languages, which means you've always had first-class expressions.
 
 ## Example: First-Class Expressions
 
@@ -286,8 +286,8 @@ for (let subnet in subnetNumbers) {
 > iteration. Read more at
 > https://www.hashicorp.com/blog/hashicorp-terraform-0-12-preview-for-and-for-each#dynamic-nested-blocks.
 
-Because Pulumi uses real languages, you get an incredible amount of flexibility in how to achieve this pattern,
-in addition to myriad others that the HCL2 syntax doesn't support.
+Because Pulumi uses general purposes languages, you get a great deal of flexibility in how to achieve this pattern,
+in addition to other approaches that the HCL2 syntax doesn't support.
 
 ## Terraform 0.11
 
@@ -603,8 +603,8 @@ const lbConfig = opcComputeInstances.map(i => `server ${i.label} ${i.ipAddress}:
 > Terraform 0.12 HCL configuration has an exact 1:1 mapping to and from JSON. Read more at
 > https://www.hashicorp.com/blog/terraform-0-12-reliable-json-syntax.
 
-Pulumi uses real languages which have great support for JSON, whether that is the built-in support in
-JavaScript and TypeScript, or by using a library package for Python, Go, or others.
+Pulumi uses general purpose languages which all have great support for JSON these days, whether that is the built-in
+support in JavaScript and TypeScript, or by using a library package for Python, Go, or others.
 
 # References as First-Class Values
 
