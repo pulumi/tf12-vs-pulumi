@@ -187,7 +187,7 @@ output "instance_private_ip_addresses" {
 ### Pulumi
 
 ```typescript
-export const instancePrivateIpAddresses = instances.map(i => [i.id, i.privateIp]).toMap();
+export const instancePrivateIpAddresses = iterable.toObject(instances, i=> [i.id, i.privateIp]);
 ```
 
 ## Example: For Expressions for List and Map Transformations (2/3)
@@ -207,8 +207,8 @@ output "instance_public_ip_addresses" {
 ### Pulumi
 
 ```typescript
-export const instancePublicIpAddresses =
-    instances.filter(i => i.public).map(i => [i.id, i.privateIp]).toMap();
+export const instancePrivateIpAddresses =
+    iterable.toObject(instances.filter(i => i.public), i=> [i.id, i.privateIp]);
 ```
 
 ## Example: For Expressions for List and Map Transformations (3/3)
@@ -229,8 +229,7 @@ output "instances_by_availability_zone" {
 ### Pulumi
 
 ```typescript
-export const instancesByAvailabilityZone =
-    instances.map(i => [i.availabilityZone, i.id]).toGroupedMap();
+export const instancesByAvailabilityZone = iterable.groupBy(instances, i=> [i.availabilityZone, i.id]);
 ```
 
 ## Example: Resource for_each
