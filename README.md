@@ -272,10 +272,12 @@ const vpc = new aws.ec2.Vpc("example", {
     // ...
 });
 
-for (let subnet in subnetNumbers) {
-    vpc: vpc.id,
-    availabilityZone: subnet,
-    cidrBlock: terraform.cidrsubnet(vpc.cidrBlock, 8, subnet.value),
+for (const az of Object.keys(subnetNumbers)) {
+    new aws.ec2.Subnet(`subnet-${subnet}`, {
+        vpc: vpc.id,
+        availabilityZone: az,
+        cidrBlock: terraform.cidrsubnet(vpc.cidrBlock, 8, subnetNumbers[az]),
+    });
 }
 ```
 
